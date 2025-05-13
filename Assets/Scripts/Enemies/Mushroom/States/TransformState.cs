@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TransformState : EnemyState
 {
     private float transformDuration = 1f;
-    private float timer;
+    private float timer = 0f;
     private MushroomEnemy mushroom;
 
     public TransformState(MushroomEnemy mushroom) : base(mushroom)
@@ -17,9 +18,7 @@ public class TransformState : EnemyState
     {
         mushroom.hasTransformed = true;
         mushroom.animator.SetTrigger("Transform");
-        timer = 0f;
     }
-
 
     public override void UpdateState()
     {
@@ -27,6 +26,10 @@ public class TransformState : EnemyState
         if (timer >= transformDuration)
         {
             mushroom.SwitchState(new ChaseState(mushroom));
+        }
+        if (mushroom.health <= 0)
+        {
+            mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
     }
 }

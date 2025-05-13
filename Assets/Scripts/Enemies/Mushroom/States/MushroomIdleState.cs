@@ -29,5 +29,9 @@ public class MushroomIdleState : EnemyState
         {
             mushroom.SwitchState(new ChaseState(mushroom));
         }
+        if (mushroom.health <= 0)
+        {
+            mushroom.SwitchState(new MushroomDeathState(mushroom));
+        }
     }
 }

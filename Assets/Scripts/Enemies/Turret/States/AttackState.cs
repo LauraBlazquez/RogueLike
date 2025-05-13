@@ -13,7 +13,7 @@ public class TurretAttackState : EnemyState
 
     public override void EnterState()
     {
-        // Posiblemente iniciar animación de alerta
+        turret.animator.SetTrigger("Shoot");
     }
 
     public override void UpdateState()
@@ -23,11 +23,12 @@ public class TurretAttackState : EnemyState
             turret.SwitchState(new TurretIdleState(turret));
             return;
         }
-
+        if (turret.health <= 0)
+        {
+            turret.SwitchState(new TurretDeathState(turret));
+        }
         turret.LookAtPlayer();
         turret.Shoot();
     }
-
-    public override void ExitState() { }
 }
 

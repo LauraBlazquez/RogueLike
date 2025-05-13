@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Update()
     {
-        currentState?.UpdateState();
+        if (player != null) currentState?.UpdateState();
     }
 
     public void SwitchState(EnemyState newState)
@@ -31,18 +31,15 @@ public class Enemy : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log($"Enemy took {damage} damage, health left: {health}");
-
         if (health <= 0)
         {
             Die();
         }
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
-        Debug.Log("Enemy died!");
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     public Transform GetPlayerTransform()

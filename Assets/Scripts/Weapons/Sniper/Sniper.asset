@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   weaponName: Sniper
-  weaponSprite: {fileID: -2413806693520163455, guid: 1ac707458a8ec324380094dc7a7f382e, type: 3}
+  weaponSprite: {fileID: -2413806693520163455, guid: ba7eea0f23b832447aab4141f713a686, type: 3}
   damage: 100
+  poolSO: {fileID: 11400000, guid: d471d58c4ea36694c8722a9bea42ea99, type: 2}
   bulletSpeed: 20
   spawnOffset: 0.3
-  poolSO: {fileID: 11400000, guid: d471d58c4ea36694c8722a9bea42ea99, type: 2}

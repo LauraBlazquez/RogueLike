@@ -5,7 +5,7 @@ using UnityEngine;
 public class MushroomEnemy : Enemy
 {
     [Header("Mushroom Settings")]
-    public float detectionRange = 6f;
+    public float detectionRange = 3f;
     public float explosionRange = 1.2f;
     public float speed = 2.5f;
     public float damage = 50f;
@@ -14,7 +14,6 @@ public class MushroomEnemy : Enemy
 
     [Header("State Info")]
     public bool hasTransformed = false;
-    private bool hasExploded = false;
     public Vector2 lastKnownPlayerPosition;
 
     [HideInInspector] public Animator animator;
@@ -43,16 +42,12 @@ public class MushroomEnemy : Enemy
 
     public void Explode()
     {
-        if (hasExploded) return;
-        hasExploded = true;
-        animator.SetTrigger("Explode");
-
         Collider2D hit = Physics2D.OverlapCircle(transform.position, explosionRange, LayerMask.GetMask("Player"));
         if (hit)
         {
             hit.GetComponent<IDamageable>()?.TakeDamage(damage);
         }
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject, 1f);
     }
 }
 

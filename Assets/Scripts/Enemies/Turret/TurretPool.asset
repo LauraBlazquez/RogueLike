@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TurretPool
   m_EditorClassIdentifier: 
   poolID: Turret
-  bulletPrefab: {fileID: 4226448475790850463, guid: 653963e3293c85c4c86ddb29529b6bcb, type: 3}
+  bulletPrefab: {fileID: 1925352451783012804, guid: 653963e3293c85c4c86ddb29529b6bcb, type: 3}
   poolSize: 5

@@ -11,7 +11,10 @@ public class TurretIdleState : EnemyState
         this.turret = turret;
     }
 
-    public override void EnterState() { }
+    public override void EnterState() 
+    {
+        
+    }
 
     public override void UpdateState()
     {
@@ -19,7 +22,9 @@ public class TurretIdleState : EnemyState
         {
             turret.SwitchState(new TurretAttackState(turret));
         }
+        if (turret.health <= 0)
+        {
+            turret.SwitchState(new TurretDeathState(turret));
+        }
     }
-
-    public override void ExitState() { }
 }

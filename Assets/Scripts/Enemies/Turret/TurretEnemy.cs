@@ -35,6 +35,7 @@ public class TurretEnemy : Enemy
 
     public bool IsPlayerInRange()
     {
+        if(player == null) return false;
         return Vector3.Distance(transform.position, player.position) <= detectionRange;
     }
 

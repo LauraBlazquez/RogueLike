@@ -17,5 +17,9 @@ public class CamouflagedState : EnemyState
         {
             mushroom.SwitchState(new TransformState((MushroomEnemy)mushroom));
         }
+        if (mushroom.health <= 0)
+        {
+            mushroom.SwitchState(new MushroomDeathState(mushroom));
+        }
     }
 }

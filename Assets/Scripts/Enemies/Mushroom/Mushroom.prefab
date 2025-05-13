@@ -170,7 +170,7 @@ MonoBehaviour:
   explosionRange: 1.2
   speed: 2
   damage: 50
-  patrolRadius: 1
+  patrolRadius: 2
   idlePauseTime: 1
   hasTransformed: 0
   lastKnownPlayerPosition: {x: 0, y: 0}

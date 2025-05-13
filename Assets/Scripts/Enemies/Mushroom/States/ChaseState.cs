@@ -14,7 +14,6 @@ public class ChaseState : EnemyState
     public override void EnterState()
     {
         mushroom.animator.SetBool("isWalking", true);
-        mushroom.animator.SetBool("isIdle", true);
     }
 
 
@@ -33,6 +32,10 @@ public class ChaseState : EnemyState
         else
         {
             mushroom.MoveToward(mushroom.GetPlayerTransform().position);
+        }
+        if (mushroom.health <= 0)
+        {
+            mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
     }
 }

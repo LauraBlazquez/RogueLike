@@ -17,7 +17,6 @@ public class PatrolState : EnemyState
     {
         SetNewPatrolPoint();
         mushroom.animator.SetBool("isWalking", true);
-        mushroom.animator.SetBool("isIdle", false);
     }
 
     public override void UpdateState()
@@ -30,10 +29,13 @@ public class PatrolState : EnemyState
         {
             mushroom.MoveToward(patrolTarget);
         }
-
         if (mushroom.IsPlayerInRange(mushroom.detectionRange))
         {
             mushroom.SwitchState(new ChaseState(mushroom));
+        }
+        if (mushroom.health <= 0)
+        {
+            mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
     }
 
