@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   weaponName: Melee
-  weaponSprite: {fileID: 21300000, guid: 50e65f23c65d38741a8806a689fd3cc5, type: 3}
+  weaponPrefab: {fileID: 6950076790586673250, guid: 044fafaeded551c44a7f7b789aff114b, type: 3}
   damage: 10
   poolSO: {fileID: 0}
   attackRange: 1.4

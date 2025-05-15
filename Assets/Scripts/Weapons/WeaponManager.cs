@@ -9,23 +9,15 @@ public class WeaponManager : MonoBehaviour
 
     public List<WeaponData> unlockedWeapons = new List<WeaponData>();
     public WeaponData currentWeapon;
-    private SpriteRenderer weaponRenderer;
     private PlayerInput playerInput;
+    private GameObject currentWeaponGO;
 
     private void Start()
     {
-        Transform spriteTransform = transform.Find("Weapon");
-        if (spriteTransform != null)
-        {
-            weaponRenderer = spriteTransform.GetComponent<SpriteRenderer>();
-        }
-
         if (defaultWeapon != null)
         {
             unlockedWeapons.Add(defaultWeapon);
-            currentWeapon = defaultWeapon;
-            UpdateWeaponVisual();
-            UpdateWeaponPool();
+            SelectWeaponByIndex(0);
         }
     }
 
@@ -69,40 +61,50 @@ public class WeaponManager : MonoBehaviour
 
     private void UpdateWeaponVisual()
     {
-        if (weaponRenderer != null && currentWeapon.weaponSprite != null)
+        if (currentWeapon == null || currentWeapon.weaponPrefab == null)
         {
-            weaponRenderer.sprite = currentWeapon.weaponSprite;
+            Debug.Log("El arma actual no tiene prefab");
+            return;
         }
+
+        if (currentWeaponGO != null)
+        {
+            Destroy(currentWeaponGO);
+        }
+        currentWeaponGO = Instantiate(currentWeapon.weaponPrefab, transform);
     }
 
     private void UpdateWeaponPool()
     {
         if (currentWeapon == null || currentWeapon.poolSO == null)
         {
-            Debug.LogWarning("Faltan referencias para crear el pool.");
+            Debug.Log("Esta arma no tiene pool asignado.");
+            return;
         }
-        else
-        {
-            if (magazinePool == null)
-            {
-                Debug.Log("Esta arma no tiene pool");
-            }
-            else
-            {
-                magazinePool.poolConfig = currentWeapon.poolSO;
-                if (GenericPool.Pools.ContainsKey(magazinePool.poolConfig.poolID))
-                {
-                    GenericPool.Pools.Remove(magazinePool.poolConfig.poolID);
-                }
-                foreach (Transform child in magazinePool.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-                magazinePool.InitializePool();
 
-                Debug.Log($"Pool instanciada para: {currentWeapon.poolSO.poolID}");
-            }
+        magazinePool = currentWeaponGO?.GetComponentInChildren<GenericPool>();
+        
+        if (magazinePool == null)
+        {
+            GameObject poolGO = new GameObject("MagazinePool");
+            poolGO.transform.SetParent(currentWeaponGO.transform);
+            magazinePool = poolGO.AddComponent<GenericPool>();
         }
+
+        magazinePool.poolConfig = currentWeapon.poolSO;
+
+        foreach (Transform child in magazinePool.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        if (GenericPool.Pools.ContainsKey(magazinePool.poolConfig.poolID))
+        {
+            GenericPool.Pools.Remove(magazinePool.poolConfig.poolID);
+        }
+        
+        magazinePool.InitializePool();
+        Debug.Log($"Pool instanciada para: {currentWeapon.poolSO.poolID}");
     }
 
     public void UnlockWeapon(WeaponData newWeapon)

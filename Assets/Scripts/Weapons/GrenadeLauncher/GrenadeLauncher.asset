@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GrenadeLauncher
   m_EditorClassIdentifier: 
   weaponName: LanzaGranadas
-  weaponSprite: {fileID: -2413806693520163455, guid: 8e8014dacfe58f548a9c750feaa690f3, type: 3}
+  weaponPrefab: {fileID: 2912039037801736883, guid: 01f64d94e70e19240903a59c64f0ae0e, type: 3}
   damage: 40
   poolSO: {fileID: 11400000, guid: 30e613d6136c1714ab4168ed1a9d1cc4, type: 2}
   launchSpeed: 5

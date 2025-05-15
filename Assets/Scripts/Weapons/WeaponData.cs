@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public string weaponName;
-    public Sprite weaponSprite;
+    public GameObject weaponPrefab;
     public int damage;
     public GenericPoolSO poolSO = null;
 

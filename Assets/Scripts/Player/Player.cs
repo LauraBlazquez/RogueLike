@@ -10,11 +10,20 @@ public class Player : MonoBehaviour, IDamageable
     private PlayerControlls controls;
     private Vector2 movementInput;
     private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
+    private float idleTimer = 0;
+    private float sleepThreshold = 3;
+    private bool isSleeping = false;
+    private bool canMove = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControlls();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -38,14 +47,41 @@ public class Player : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         rb.velocity = movementInput * moveSpeed;
+
+        bool isWalking = movementInput != Vector2.zero;
+        animator.SetBool("isWalking", isWalking);
+
+        if (isWalking)
+        {
+            animator.SetFloat("X", movementInput.x);
+            animator.SetFloat("Y", movementInput.y);
+            spriteRenderer.flipX = movementInput.x < 0;
+
+            idleTimer = 0;
+            isSleeping = false;
+        }
+        else
+        {
+            idleTimer += Time.fixedDeltaTime;
+
+            if(!isSleeping && idleTimer >= sleepThreshold)
+            {
+                animator.SetTrigger("Sleep");
+                isSleeping = true;
+            }
+        }
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        //Debug.Log($"Player took {damage} damage. Health left: {currentHealth}");
-
+        animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
             Die();
@@ -54,8 +90,11 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        //Debug.Log("Player died!");
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
+        rb.velocity = Vector2.zero;
+        controls.Gameplay.Disable();
+        canMove = false;
+        this.enabled = false;
     }
 }
 
