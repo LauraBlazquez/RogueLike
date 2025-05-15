@@ -18,9 +18,10 @@ public class TurretAttackState : EnemyState
 
     public override void UpdateState()
     {
-        if (!turret.IsPlayerInRange())
+        if (!turret.IsPlayerInRange() || Player.IsDead)
         {
             turret.SwitchState(new TurretIdleState(turret));
+            turret.animator.ResetTrigger("Shoot");
             return;
         }
         if (turret.health <= 0)

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour, IDamageable
     private float sleepThreshold = 3;
     private bool isSleeping = false;
     private bool canMove = true;
+    private bool isDead = false;
+    public static bool IsDead { get; private set;} = false;
 
     private void Awake()
     {
@@ -80,17 +82,18 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (currentHealth  > 0) animator.SetTrigger("Hurt");
+        else Die();      
     }
 
     private void Die()
     {
-        animator.SetTrigger("Die");
+        if (isDead) return;
+        isDead = true;
+        IsDead = true;
+        animator.SetTrigger("Dead");
         rb.velocity = Vector2.zero;
         controls.Gameplay.Disable();
         canMove = false;

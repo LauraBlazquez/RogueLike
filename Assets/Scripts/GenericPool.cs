@@ -11,7 +11,7 @@ public class GenericPool : MonoBehaviour
     {
         if (poolConfig == null)
         {
-            Debug.LogError("No PoolConfig assigned!");
+            //Debug.LogError("No PoolConfig assigned!");
             return;
         }
 
@@ -28,8 +28,7 @@ public class GenericPool : MonoBehaviour
             bullet.SetActive(false);
             bulletQueue.Enqueue(bullet);
         }
-
-        Debug.Log($"Pool '{poolConfig.poolID}' inicializada con {poolConfig.poolSize} objetos.");
+        //Debug.Log($"Pool '{poolConfig.poolID}' inicializada con {poolConfig.poolSize} objetos.");
     }
 
     public static GenericPool GetPool(string id)

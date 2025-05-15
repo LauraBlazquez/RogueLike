@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public float health = 100f;
+    private float currentHealth;
+    private HealthBar healthBar;
 
     [Header("State Machine")]
     protected EnemyState currentState;
@@ -13,6 +15,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
+        healthBar = GetComponentInChildren<HealthBar>();
+        currentHealth = health;
+        healthBar.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -30,8 +35,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        currentHealth -= damage;
+        healthBar.gameObject.SetActive(true);
+        healthBar.UpdateHealthBar(currentHealth);
+        if (currentHealth <= 0)
         {
             Die();
         }

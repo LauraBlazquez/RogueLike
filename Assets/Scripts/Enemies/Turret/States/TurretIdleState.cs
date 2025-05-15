@@ -13,12 +13,11 @@ public class TurretIdleState : EnemyState
 
     public override void EnterState() 
     {
-        
     }
 
     public override void UpdateState()
     {
-        if (turret.IsPlayerInRange())
+        if (turret.IsPlayerInRange() && !Player.IsDead)
         {
             turret.SwitchState(new TurretAttackState(turret));
         }

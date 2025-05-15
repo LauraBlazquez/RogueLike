@@ -11,6 +11,11 @@ public class CamouflagedState : EnemyState
         this.mushroom = mushroom;
     }
 
+    public override void EnterState()
+    {
+        Debug.Log("Camuflao");
+    }
+
     public override void UpdateState()
     {
         if (mushroom.IsPlayerInRange(mushroom.detectionRange))
@@ -19,6 +24,7 @@ public class CamouflagedState : EnemyState
         }
         if (mushroom.health <= 0)
         {
+            Debug.Log("Entrando al modo Death");
             mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
     }

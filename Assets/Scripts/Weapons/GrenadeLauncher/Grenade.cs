@@ -70,7 +70,7 @@ public class Grenade : Bullet
                 body.AddForce(forceDir * explosionForce);
             }
         }
-        Debug.Log("Granada explotó...");
+        //Debug.Log("Granada explotó...");
         ReturnToPool();
     }
 }

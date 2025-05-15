@@ -12,8 +12,8 @@ public class MushroomIdleState : EnemyState
 
     public override void EnterState()
     {
+        Debug.Log("Reposo");
         mushroom.animator.SetBool("isWalking", false);
-        mushroom.animator.SetBool("isIdle", true);
     }
 
 

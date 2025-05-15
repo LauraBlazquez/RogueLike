@@ -46,16 +46,19 @@ public class WeaponManager : MonoBehaviour
 
     void SelectWeaponByIndex(int index)
     {
-        if (index < unlockedWeapons.Count)
+        if (!Player.IsDead)
         {
-            currentWeapon = unlockedWeapons[index];
-            Debug.Log($"Selected weapon: {currentWeapon.weaponName}");
-            UpdateWeaponVisual();
-            UpdateWeaponPool();
-        }
-        else
-        {
-            Debug.Log("No weapon unlocked in this slot.");
+            if (index < unlockedWeapons.Count)
+            {
+                currentWeapon = unlockedWeapons[index];
+                //Debug.Log($"Selected weapon: {currentWeapon.weaponName}");
+                UpdateWeaponVisual();
+                UpdateWeaponPool();
+            }
+            else
+            {
+                //Debug.Log("No weapon unlocked in this slot.");
+            }
         }
     }
 
@@ -78,7 +81,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (currentWeapon == null || currentWeapon.poolSO == null)
         {
-            Debug.Log("Esta arma no tiene pool asignado.");
+            //Debug.Log("Esta arma no tiene pool asignado.");
             return;
         }
 
@@ -104,7 +107,7 @@ public class WeaponManager : MonoBehaviour
         }
         
         magazinePool.InitializePool();
-        Debug.Log($"Pool instanciada para: {currentWeapon.poolSO.poolID}");
+        //Debug.Log($"Pool instanciada para: {currentWeapon.poolSO.poolID}");
     }
 
     public void UnlockWeapon(WeaponData newWeapon)
@@ -118,7 +121,7 @@ public class WeaponManager : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        if (currentWeapon != null)
+        if (currentWeapon != null && !Player.IsDead)
         {
             currentWeapon.UseWeapon(gameObject);
         }

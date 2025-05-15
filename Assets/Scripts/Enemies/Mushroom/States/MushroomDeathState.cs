@@ -13,6 +13,7 @@ public class MushroomDeathState : EnemyState
 
     public override void EnterState()
     {
+        Debug.Log("Modo Death");
         mushroom.animator.SetTrigger("Dead");
     }
 
