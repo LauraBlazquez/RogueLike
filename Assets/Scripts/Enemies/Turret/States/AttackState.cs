@@ -24,7 +24,7 @@ public class TurretAttackState : EnemyState
             turret.animator.ResetTrigger("Shoot");
             return;
         }
-        if (turret.health <= 0)
+        if (turret.currentHealth <= 0)
         {
             turret.SwitchState(new TurretDeathState(turret));
         }

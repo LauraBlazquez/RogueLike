@@ -36,8 +36,8 @@ public class MushroomEnemy : Enemy
         Vector3 dir = (target - transform.position).normalized;
         transform.position += dir * speed * Time.deltaTime;
 
-        if (dir.x != 0)
-            transform.localScale = new Vector3(Mathf.Sign(dir.x), 1f, 1f);
+        animator.SetFloat("X", transform.position.x);
+        animator.SetFloat("Y", transform.position.y);
     }
 
     public void Explode()
@@ -48,6 +48,7 @@ public class MushroomEnemy : Enemy
             hit.GetComponent<IDamageable>()?.TakeDamage(damage);
         }
         Destroy(gameObject, 1f);
+        Destroy(this);
     }
 }
 

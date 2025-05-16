@@ -4,7 +4,7 @@ using System.Collections;
 public class Grenade : Bullet
 {
     public float explosionRadius = 1.5f;
-    public float explosionForce = 300f;
+    public float explosionForce = 150f;
     private Rigidbody2D rb;
     private bool hasExploded = false;
 
@@ -13,18 +13,16 @@ public class Grenade : Bullet
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void FireParabola(Vector3 target, float damage, string targetTag, string poolID, float launchSpeed)
+    public void Fire(Vector3 target, float damage, string targetTag, string poolID, float launchSpeed)
     {
-        this.poolID = poolID;
-        this.targetTag = targetTag;
-        this.damage = damage;
-        hasExploded = false;
-
-        Vector2 dir = (target - transform.position);
+        Vector3 dir = (target - transform.position);
         float time = dir.magnitude / launchSpeed;
-
         Vector2 velocity = CalculateArcVelocity(transform.position, target, time);
         rb.velocity = velocity;
+        this.damage = damage;
+        this.poolID = poolID;
+        this.targetTag = targetTag;
+        hasExploded = false;
 
         StartCoroutine(AutoExplodeAfterTime(lifetime));
     }
@@ -52,17 +50,13 @@ public class Grenade : Bullet
 
     private void Explode()
     {
-        hasExploded = true;
-
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius, LayerMask.GetMask("Enemy"));
         foreach (var hit in hits)
         {
-            // aplicar daño
             var dmg = hit.GetComponent<IDamageable>();
             if (dmg != null)
                 dmg.TakeDamage(damage);
 
-            // empuje físico
             Rigidbody2D body = hit.GetComponent<Rigidbody2D>();
             if (body != null)
             {
@@ -70,7 +64,7 @@ public class Grenade : Bullet
                 body.AddForce(forceDir * explosionForce);
             }
         }
-        //Debug.Log("Granada explotó...");
+        hasExploded = true;
         ReturnToPool();
     }
 }

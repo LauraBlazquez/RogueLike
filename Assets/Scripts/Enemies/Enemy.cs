@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public float health = 100f;
-    private float currentHealth;
+    [HideInInspector] public float currentHealth;
     private HealthBar healthBar;
 
     [Header("State Machine")]
@@ -38,10 +38,6 @@ public class Enemy : MonoBehaviour, IDamageable
         currentHealth -= damage;
         healthBar.gameObject.SetActive(true);
         healthBar.UpdateHealthBar(currentHealth);
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
     public virtual void Die()
@@ -52,11 +48,5 @@ public class Enemy : MonoBehaviour, IDamageable
     public Transform GetPlayerTransform()
     {
         return player;
-    }
-
-    public virtual void MoveToward(Vector3 target, float speed)
-    {
-        Vector3 dir = (target - transform.position).normalized;
-        transform.position += dir * speed * Time.deltaTime;
     }
 }

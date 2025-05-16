@@ -12,12 +12,14 @@ public class TurretEnemy : Enemy
 
     private float fireCooldown;
     [HideInInspector] public Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     protected override void Start()
     {
         base.Start();
         animator = GetComponentInChildren<Animator>();
         SwitchState(new TurretIdleState(this));
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void Update()
@@ -41,6 +43,9 @@ public class TurretEnemy : Enemy
 
     public void Shoot()
     {
+        animator.SetFloat("X", player.position.x);
+        animator.SetFloat("Y", player.position.y);
+        spriteRenderer.flipX = player.position.x < 0;
         if (fireCooldown <= 0f)
         {
             if (turretPool == null)

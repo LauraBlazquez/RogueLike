@@ -15,7 +15,6 @@ public class PatrolState : EnemyState
 
     public override void EnterState()
     {
-        Debug.Log("Patrullando...");
         SetNewPatrolPoint();
         mushroom.animator.SetBool("isWalking", true);
     }
@@ -34,7 +33,7 @@ public class PatrolState : EnemyState
         {
             mushroom.SwitchState(new ChaseState(mushroom));
         }
-        if (mushroom.health <= 0)
+        if (mushroom.currentHealth <= 0)
         {
             mushroom.SwitchState(new MushroomDeathState(mushroom));
         }

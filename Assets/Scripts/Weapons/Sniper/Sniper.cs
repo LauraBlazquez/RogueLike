@@ -9,18 +9,10 @@ public class Sniper : WeaponData
 
     public override void UseWeapon(GameObject owner)
     {
-        if (poolSO == null)
-        {
-            Debug.LogWarning("Sniper: PoolSO is not assigned!");
-            return;
-        }
+        if (poolSO == null) return;
 
         var pool = GenericPool.GetPool(poolSO.poolID);
-        if (pool == null)
-        {
-            Debug.LogWarning($"Sniper: No active pool found with ID: {poolSO.poolID}");
-            return;
-        }
+        if (pool == null) return;
 
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouseWorldPosition.z = 0f;
@@ -33,7 +25,6 @@ public class Sniper : WeaponData
         {
             bulletGO.transform.position = spawnPosition;
             bulletGO.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             bullet.Fire(direction, damage, "Enemy", "Sniper", bulletSpeed);
         }

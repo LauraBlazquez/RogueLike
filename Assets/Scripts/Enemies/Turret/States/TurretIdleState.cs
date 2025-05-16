@@ -21,7 +21,7 @@ public class TurretIdleState : EnemyState
         {
             turret.SwitchState(new TurretAttackState(turret));
         }
-        if (turret.health <= 0)
+        if (turret.currentHealth <= 0)
         {
             turret.SwitchState(new TurretDeathState(turret));
         }

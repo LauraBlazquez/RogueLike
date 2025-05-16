@@ -13,7 +13,6 @@ public class ExplodeState : EnemyState
 
     public override void EnterState()
     {
-        Debug.Log("Allahuakbar");
         mushroom.animator.SetTrigger("Explode");
     }
 

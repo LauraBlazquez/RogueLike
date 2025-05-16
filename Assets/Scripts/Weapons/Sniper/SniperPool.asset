@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SniperPool
   m_EditorClassIdentifier: 
   poolID: Sniper
-  bulletPrefab: {fileID: 4226448475790850463, guid: 26a68414f1b70b04e96a3e2aa73197db, type: 3}
+  bulletPrefab: {fileID: 5336361269503442595, guid: 80da7d0feb976d04385d5e09f75d6829, type: 3}
   poolSize: 15

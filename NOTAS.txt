@@ -1,7 +1,5 @@
 Tareas:
-- Añadir modificadores de parametros de animator en scripts del Player
-- Editar Weapon Manager para instanciar arma o activar gameObject en lugar de cambiar sprite en Sprite Renderer
-- Revisar armas: Melee, GrenadeLauncher y FlameThrower. Sniper OK, falta sprite
+- Revisar armas: GrenadeLauncher y FlameThrower. Sniper OK, Melee OK, 
 - Hacer UI 
 - Importar Salas
 - Implementar Tienda

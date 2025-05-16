@@ -13,7 +13,6 @@ public class CamouflagedState : EnemyState
 
     public override void EnterState()
     {
-        Debug.Log("Camuflao");
     }
 
     public override void UpdateState()
@@ -22,9 +21,8 @@ public class CamouflagedState : EnemyState
         {
             mushroom.SwitchState(new TransformState((MushroomEnemy)mushroom));
         }
-        if (mushroom.health <= 0)
+        if (mushroom.currentHealth <= 0)
         {
-            Debug.Log("Entrando al modo Death");
             mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
     }

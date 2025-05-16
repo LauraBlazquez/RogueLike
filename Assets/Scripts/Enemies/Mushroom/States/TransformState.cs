@@ -16,7 +16,6 @@ public class TransformState : EnemyState
 
     public override void EnterState()
     {
-        Debug.Log("Transformao");
         mushroom.hasTransformed = true;
         mushroom.animator.SetTrigger("Transform");
     }
@@ -28,7 +27,7 @@ public class TransformState : EnemyState
         {
             mushroom.SwitchState(new ChaseState(mushroom));
         }
-        if (mushroom.health <= 0)
+        if (mushroom.currentHealth <= 0)
         {
             mushroom.SwitchState(new MushroomDeathState(mushroom));
         }
