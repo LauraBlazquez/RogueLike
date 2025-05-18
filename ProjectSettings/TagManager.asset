@@ -18,7 +18,7 @@ TagManager:
   - Bullet
   - Player
   - Enemy
-  - 
+  - Grass
   - 
   - 
   - 
@@ -44,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 397496621
+    locked: 0
+  - name: Walls
+    uniqueID: 2119058881
+    locked: 0
+  - name: Decorations
+    uniqueID: 289842041
+    locked: 0
+  - name: UI
+    uniqueID: 2853391025
+    locked: 0
+  - name: Characters
+    uniqueID: 3529888827
     locked: 0

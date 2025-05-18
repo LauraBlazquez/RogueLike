@@ -33,6 +33,14 @@ public class TurretEnemy : Enemy
         Vector2 dir = player.position - turretHead.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         turretHead.rotation = Quaternion.Euler(0f, 0f, angle);
+        if (dir.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        } 
     }
 
     public bool IsPlayerInRange()
@@ -43,9 +51,8 @@ public class TurretEnemy : Enemy
 
     public void Shoot()
     {
-        animator.SetFloat("X", player.position.x);
-        animator.SetFloat("Y", player.position.y);
-        spriteRenderer.flipX = player.position.x < 0;
+        animator.SetFloat("X", player.localPosition.x);
+        animator.SetFloat("Y", player.localPosition.y);
         if (fireCooldown <= 0f)
         {
             if (turretPool == null)
