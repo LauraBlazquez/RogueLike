@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: LanzaLlamas
   weaponPrefab: {fileID: 5081867413725788105, guid: b77218f367a0d054a83d0c33863bed2e, type: 3}
-  damage: 30
+  damage: 35
   price: 5
   poolSO: {fileID: 0}

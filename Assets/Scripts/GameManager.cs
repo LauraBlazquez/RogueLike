@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,32 +12,45 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject winText;
     public GameObject gameOverText;
-    private int enemiesAlive = 0;
+
+    [Header("Win Parameters")]
+    private List<Enemy> enemies = new List<Enemy>();
+    private bool canCheckVictory = false;
+
+    private void Start()
+    {
+        StartCoroutine(EnableVicrotyCheckAfterDelay());
+    }
+
+    private IEnumerator EnableVicrotyCheckAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        canCheckVictory = true;
+    }
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-        Time.timeScale = 1.0f;  
     }
 
-    private void Start()
+    public void RegisterEnemy(Enemy e)
     {
-        CountEnemiesInScene();
-        gameOverPanel.SetActive(false);
-    }
-
-    public void CountEnemiesInScene()
-    {
-        enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
-    }
-
-    public void EnemyDied()
-    {
-        enemiesAlive--;
-        if (enemiesAlive <= 0)
+        if (!enemies.Contains(e))
         {
-            WinGame();
+            enemies.Add(e); 
+        }
+    }
+
+    public void UnregisterEnemy(Enemy e)
+    {
+        if (enemies.Contains(e))
+        {
+            enemies.Remove(e);
+            if (enemies.Count == 0 && canCheckVictory)
+            {
+                WinGame();
+            }
         }
     }
 
@@ -55,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Player.IsDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -29,6 +29,18 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             myRoom = GetComponentInParent<Room>();
         }
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.RegisterEnemy(this);
+        }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.UnregisterEnemy(this);
+        }
     }
 
     protected virtual void Update()
@@ -59,7 +71,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         SpawnCoins();
         Destroy(gameObject, 1f);
-        GameManager.instance.EnemyDied();
     }
 
     private void SpawnCoins()

@@ -26,12 +26,6 @@ public class WeaponManager : MonoBehaviour
     private void OnEnable()
     {
         if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>(); 
-
-        if (playerInput == null)
-        {
-            Debug.Log("PlayerInput aun sin asignar");
-            return;
-        }
         var actions = playerInput.actions;
 
         actions["SelectWeapon1"].performed += ctx => SelectWeaponByIndex(0);

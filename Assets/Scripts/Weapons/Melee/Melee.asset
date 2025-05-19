@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Melee
   weaponPrefab: {fileID: 6950076790586673250, guid: 044fafaeded551c44a7f7b789aff114b, type: 3}
-  damage: 10
+  damage: 20
+  price: 0
   poolSO: {fileID: 0}
   attackRange: 1.5

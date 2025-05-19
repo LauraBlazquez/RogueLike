@@ -19,7 +19,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool isSleeping = false;
     private bool canMove = true;
     private bool isDead = false;
-    public static bool IsDead { get; private set;} = false;
+    public static bool IsDead { get; set;} = false;
     public static bool IsFlipped { get; private set;} = false;
 
     private void Awake()
@@ -109,7 +109,6 @@ public class Player : MonoBehaviour, IDamageable
         IsDead = true;
         animator.SetTrigger("Dead");
         rb.velocity = Vector2.zero;
-        controls.Gameplay.Disable();
         canMove = false;
 
         StartCoroutine(DieCoroutine());

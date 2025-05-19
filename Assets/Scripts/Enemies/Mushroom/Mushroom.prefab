@@ -151,7 +151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -765078469
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -609173294, guid: 7a599c5ae28f79548b419d246352edfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -269,13 +269,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249e99e17ede6724eaec6b4fbdfe5da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   currentHealth: 0
   coinPrefab: {fileID: 7899400852418893932, guid: 90b969ffa20d11740a95aa392deeaa3b, type: 3}
+  myRoom: {fileID: 0}
   detectionRange: 3
   explosionRange: 1
   speed: 2
-  damage: 50
+  damage: 35
   patrolRadius: 2
   idlePauseTime: 1
   hasTransformed: 0
