@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
     public float maxHealth = 100f;
     private float currentHealth;
     public float moveSpeed = 3.5f;
+    public HealthBar healthBar;
     private PlayerControlls controls;
     private Vector2 movementInput;
     private Rigidbody2D rb;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool canMove = true;
     private bool isDead = false;
     public static bool IsDead { get; private set;} = false;
+    public static bool IsFlipped { get; private set;} = false;
 
     private void Awake()
     {
@@ -63,7 +65,18 @@ public class Player : MonoBehaviour, IDamageable
         {
             animator.SetFloat("X", movementInput.x);
             animator.SetFloat("Y", movementInput.y);
-            spriteRenderer.flipX = movementInput.x < 0;
+            Vector3 localScale = transform.localScale;
+            if (movementInput.x < 0)
+            {
+                localScale.x = -Mathf.Abs(localScale.x);
+                IsFlipped = true;
+            }
+            else if (movementInput.x > 0)
+            {
+                localScale.x = Mathf.Abs(localScale.x);
+                IsFlipped = false;
+            }
+            transform.localScale = localScale;
 
             idleTimer = 0;
             isSleeping = false;
@@ -84,6 +97,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (isDead) return;
         currentHealth -= damage;
+        healthBar.UpdateHealthBar(currentHealth);
         if (currentHealth  > 0) animator.SetTrigger("Hurt");
         else Die();      
     }

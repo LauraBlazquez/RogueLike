@@ -30,7 +30,8 @@ public class WeaponManager : MonoBehaviour
         actions["SelectWeapon2"].performed += ctx => SelectWeaponByIndex(1);
         actions["SelectWeapon3"].performed += ctx => SelectWeaponByIndex(2);
         actions["SelectWeapon4"].performed += ctx => SelectWeaponByIndex(3);
-        actions["Attack"].performed += OnAttack;
+        actions["Attack"].performed += OnAttackStart;
+        actions["Attack"].canceled += OnAttackEnd;
     }
 
     private void OnDisable()
@@ -41,7 +42,8 @@ public class WeaponManager : MonoBehaviour
         actions["SelectWeapon2"].performed -= ctx => SelectWeaponByIndex(1);
         actions["SelectWeapon3"].performed -= ctx => SelectWeaponByIndex(2);
         actions["SelectWeapon4"].performed -= ctx => SelectWeaponByIndex(3);
-        actions["Attack"].performed -= OnAttack;
+        actions["Attack"].performed -= OnAttackStart;
+        actions["Attack"].canceled -= OnAttackEnd;
     }
 
     void SelectWeaponByIndex(int index)
@@ -51,13 +53,8 @@ public class WeaponManager : MonoBehaviour
             if (index < unlockedWeapons.Count)
             {
                 currentWeapon = unlockedWeapons[index];
-                //Debug.Log($"Selected weapon: {currentWeapon.weaponName}");
                 UpdateWeaponVisual();
                 UpdateWeaponPool();
-            }
-            else
-            {
-                //Debug.Log("No weapon unlocked in this slot.");
             }
         }
     }
@@ -81,7 +78,6 @@ public class WeaponManager : MonoBehaviour
     {
         if (currentWeapon == null || currentWeapon.poolSO == null)
         {
-            //Debug.Log("Esta arma no tiene pool asignado.");
             return;
         }
 
@@ -107,7 +103,6 @@ public class WeaponManager : MonoBehaviour
         }
         
         magazinePool.InitializePool();
-        //Debug.Log($"Pool instanciada para: {currentWeapon.poolSO.poolID}");
     }
 
     public void UnlockWeapon(WeaponData newWeapon)
@@ -115,15 +110,23 @@ public class WeaponManager : MonoBehaviour
         if (!unlockedWeapons.Contains(newWeapon))
         {
             unlockedWeapons.Add(newWeapon);
-            Debug.Log($"Weapon {newWeapon.weaponName} unlocked!");
         }
+        
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttackStart(InputAction.CallbackContext context)
     {
         if (currentWeapon != null && !Player.IsDead)
         {
             currentWeapon.UseWeapon(gameObject);
+        }
+    }
+
+    private void OnAttackEnd(InputAction.CallbackContext context)
+    { 
+        if (currentWeapon != null)
+        {
+            currentWeapon.StopUse(gameObject);
         }
     }
 }

@@ -11,4 +11,9 @@ public class WeaponData : ScriptableObject
     {
         Debug.Log("Using a weapon");
     }
+
+    public virtual void StopUse(GameObject user)
+    {
+        Debug.Log("Stop using weapon.");
+    }
 }

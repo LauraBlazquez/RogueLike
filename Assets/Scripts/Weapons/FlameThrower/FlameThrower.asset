@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FlameThrower
   m_EditorClassIdentifier: 
   weaponName: LanzaLlamas
-  weaponPrefab: {fileID: 1471868452809619907, guid: b77218f367a0d054a83d0c33863bed2e, type: 3}
-  damage: 0
+  weaponPrefab: {fileID: 5081867413725788105, guid: b77218f367a0d054a83d0c33863bed2e, type: 3}
+  damage: 30
   poolSO: {fileID: 0}

@@ -55,10 +55,10 @@ public class Bullet : MonoBehaviour
             }
             ReturnToPool();
         }
-        //if (collision.CompareTag("Wall"))
-        //{
-        //    ReturnToPool();
-        //}
+        if (collision.CompareTag("Wall"))
+        {
+            ReturnToPool();
+        }
     }
 
     public void ReturnToPool()

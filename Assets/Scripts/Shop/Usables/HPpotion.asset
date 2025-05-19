@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40d3becfde65b24cb427dbd559ff01b, type: 3}
   m_Name: HPpotion
   m_EditorClassIdentifier: 
-  value: 0.5
-  photo: {fileID: -1535676911, guid: fc2d2ec98118e5546a8bd1cddf6a9cdc, type: 3}
+  value: 50
+  photo: {fileID: -1260103459, guid: 6e31c0bc8d981354f89d667012aa1be6, type: 3}
   price: 20
