@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlameThrowerBehaviour : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private new ParticleSystem particleSystem;
     public FlameThrower weaponData;
     private bool isFiring = false;
 

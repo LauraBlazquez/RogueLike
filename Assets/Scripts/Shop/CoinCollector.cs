@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollector : MonoBehaviour
-{
-    private void OnTriggerEnter2D(Collider2D collision)
+{    
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            //coinCollector++;
+            CoinManager.Instance.AddCoins(1);
             Destroy(gameObject);
         }
     }

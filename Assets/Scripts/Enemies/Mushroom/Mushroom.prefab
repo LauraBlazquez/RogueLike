@@ -87,8 +87,8 @@ GameObject:
   - component: {fileID: 8591657855127622248}
   - component: {fileID: 2325065942949756963}
   - component: {fileID: 2479921679216715095}
-  - component: {fileID: 5377203829974453004}
   - component: {fileID: -2357932098172533766}
+  - component: {fileID: 5377203829974453004}
   m_Layer: 8
   m_Name: Mushroom
   m_TagString: Enemy
@@ -230,29 +230,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9496781, y: 2.5710673}
   m_EdgeRadius: 0
---- !u!114 &5377203829974453004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167807472672685781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249e99e17ede6724eaec6b4fbdfe5da7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  currentHealth: 0
-  detectionRange: 3
-  explosionRange: 1
-  speed: 2
-  damage: 50
-  patrolRadius: 2
-  idlePauseTime: 1
-  hasTransformed: 0
-  lastKnownPlayerPosition: {x: 0, y: 0}
-  animator: {fileID: 0}
 --- !u!50 &-2357932098172533766
 Rigidbody2D:
   serializedVersion: 4
@@ -280,6 +257,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &5377203829974453004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167807472672685781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249e99e17ede6724eaec6b4fbdfe5da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  currentHealth: 0
+  coinPrefab: {fileID: 7899400852418893932, guid: 90b969ffa20d11740a95aa392deeaa3b, type: 3}
+  detectionRange: 3
+  explosionRange: 1
+  speed: 2
+  damage: 50
+  patrolRadius: 2
+  idlePauseTime: 1
+  hasTransformed: 0
+  lastKnownPlayerPosition: {x: 0, y: 0}
+  animator: {fileID: 0}
 --- !u!1 &4321721233392432805
 GameObject:
   m_ObjectHideFlags: 0

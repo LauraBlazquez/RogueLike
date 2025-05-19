@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class MushroomDeathState : EnemyState
 {
@@ -14,10 +15,6 @@ public class MushroomDeathState : EnemyState
     public override void EnterState()
     {
         mushroom.animator.SetTrigger("Dead");
-    }
-
-    public override void UpdateState()
-    {
         mushroom.Die();
     }
 }

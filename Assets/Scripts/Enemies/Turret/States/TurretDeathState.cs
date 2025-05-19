@@ -14,10 +14,6 @@ public class TurretDeathState : EnemyState
     public override void EnterState()
     {
         turret.animator.SetTrigger("Dead");
-    }
-
-    public override void UpdateState()
-    {
         turret.Die();
     }
 }

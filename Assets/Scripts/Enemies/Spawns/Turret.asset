@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Turret
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 326822433218255752, guid: c940fa17546aca245bdc7bdfbb077f42, type: 3}
-  minSpawn: 3
-  maxSpawn: 8
+  minSpawn: 1
+  maxSpawn: 3
