@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponName: Sniper
   weaponPrefab: {fileID: 233335995912470650, guid: e1e73561cec8aa94ebaed3567c7ba606, type: 3}
   damage: 100
+  price: 15
   poolSO: {fileID: 11400000, guid: d471d58c4ea36694c8722a9bea42ea99, type: 2}
   bulletSpeed: 15
   spawnOffset: 0.2

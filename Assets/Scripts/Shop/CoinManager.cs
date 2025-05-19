@@ -6,8 +6,8 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance;
+    public int currentCoins = 0;
     [SerializeField] private TextMeshProUGUI coinText;
-    private int currentCoins = 0;
 
     private void Awake()
     {

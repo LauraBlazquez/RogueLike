@@ -27,7 +27,7 @@ public class MushroomEnemy : Enemy
 
     public bool IsPlayerInRange(float range)
     {
-        if (player == null) return false; //REVISAR
+        if (player == null) return false;
         return Vector3.Distance(transform.position, player.position) <= range;
     }
 

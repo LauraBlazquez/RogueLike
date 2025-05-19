@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     public float maxHealth = 100f;
-    private float currentHealth;
+    public float currentHealth;
     public float moveSpeed = 3.5f;
     public HealthBar healthBar;
     private PlayerControlls controls;

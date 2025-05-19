@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponName: LanzaGranadas
   weaponPrefab: {fileID: 2912039037801736883, guid: 01f64d94e70e19240903a59c64f0ae0e, type: 3}
   damage: 40
+  price: 5
   poolSO: {fileID: 11400000, guid: 30e613d6136c1714ab4168ed1a9d1cc4, type: 2}
   launchSpeed: 5
   maxRange: 4

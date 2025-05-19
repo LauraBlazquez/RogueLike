@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour, IDamageable
     [Header("Player Reference")]
     protected Transform player;
 
+    [Header("Room Awareness")]
+    public Room myRoom;
+
     protected virtual void Start()
     {
         coinAmount = Random.Range(1, 4);
@@ -22,11 +25,20 @@ public class Enemy : MonoBehaviour, IDamageable
         currentHealth = health;
         healthBar.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (myRoom == null)
+        {
+            myRoom = GetComponentInParent<Room>();
+        }
     }
 
     protected virtual void Update()
     {
-        if (player != null) currentState?.UpdateState();
+        if (player != null && IsPlayerInSameRoom()) currentState?.UpdateState();
+    }
+
+    private bool IsPlayerInSameRoom()
+    {
+        return CameraController.instance.currentRoom == myRoom;
     }
 
     public void SwitchState(EnemyState newState)

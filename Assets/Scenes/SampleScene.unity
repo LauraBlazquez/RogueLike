@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b696ce57d7f83ca4c9a724433bd896c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCoins: 0
   coinText: {fileID: 1618028354}
 --- !u!1 &1498631668
 GameObject:
@@ -1331,7 +1332,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 11400000, guid: 832fcdd569c31d241b7360ed35ac1072, type: 2}
   magazinePool: {fileID: 0}
   unlockedWeapons:
-  - {fileID: 11400000, guid: 2f49e373015561b40b202f6c33ea9ab4, type: 2}
+  - {fileID: 11400000, guid: 243d917fa4436fe438f34179bc04e9c5, type: 2}
   currentWeapon: {fileID: 0}
 --- !u!1 &7578473834275043999
 GameObject:
