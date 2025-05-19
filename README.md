@@ -20,4 +20,4 @@ Los controles del juego son muy sencillos:
   - **Recoger objectos o comprarlos**: Simplemente nos tenemos que acercar al objeto deseado.
 
 - **Cambio de armas**:
-  - **1 ,2 ,3 ,4**: Cambiar entre ranuras de armas, las armas se asignan en orden de descubrimiento.
+  - **1, 2, 3, 4**: Cambiar entre ranuras de armas, las armas se asignan en orden de descubrimiento.
