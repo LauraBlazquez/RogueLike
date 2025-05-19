@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29, y: -304}
+  m_AnchoredPosition: {x: -19, y: -315}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5159879405571283454
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
+  m_sharedMaterial: {fileID: -2846243144472798045, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -290,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 644883253666679305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35, y: -472, z: 0}
+  m_LocalPosition: {x: 35, y: -474.6, z: 0}
   m_LocalScale: {x: 21.80481, y: 21.80481, z: 21.804806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 7651937957992301557}
   - component: {fileID: 7036323592313680302}
   m_Layer: 5
-  m_Name: FlameThrowerPrice
+  m_Name: HPPotionPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,7 +1461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39, y: -486}
+  m_AnchoredPosition: {x: -33, y: -500}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7651937957992301557
@@ -1496,8 +1496,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
+  m_sharedMaterial: {fileID: -2846243144472798045, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6833,7 +6833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34, y: -486}
+  m_AnchoredPosition: {x: -34, y: -498}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4301529545999978535
@@ -6866,8 +6866,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
+  m_sharedMaterial: {fileID: -2846243144472798045, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8608,7 +8608,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.979, y: 3.312, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_LocalScale: {x: 0.075734995, y: 0.075734995, z: 0.075734995}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4823064534874261701}
@@ -8656,12 +8656,12 @@ SpriteRenderer:
   m_SortingLayerID: -765078469
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 8e8014dacfe58f548a9c750feaa690f3, type: 3}
+  m_Sprite: {fileID: 1864084596, guid: 451a78f334523e140ad8a82a1d1d3217, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 15.04, y: 7.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9861,7 +9861,7 @@ RectTransform:
   m_GameObject: {fileID: 6145591211342229390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0050000004, y: 0.0050000004, z: 0.0050000004}
+  m_LocalScale: {x: 0.03269484, y: 0.03269484, z: 0.03269484}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8682090395662959160}
@@ -9870,7 +9870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.01, y: 1.344}
+  m_AnchoredPosition: {x: -0.01, y: 8.74}
   m_SizeDelta: {x: 733, y: 412}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9138501302949492295
@@ -11170,7 +11170,7 @@ GameObject:
   - component: {fileID: 6901315807071590009}
   - component: {fileID: 450315927412500752}
   m_Layer: 5
-  m_Name: FlameThrowerPrice
+  m_Name: GrenadeLauncherPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11192,7 +11192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34, y: -486}
+  m_AnchoredPosition: {x: -25.7, y: -505}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6901315807071590009
@@ -11225,8 +11225,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
+  m_sharedMaterial: {fileID: -2846243144472798045, guid: 0310d99226203614c9af5af8159c1dbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

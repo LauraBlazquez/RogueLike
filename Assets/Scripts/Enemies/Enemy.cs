@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         SpawnCoins();
         Destroy(gameObject, 1f);
+        GameManager.instance.EnemyDied();
     }
 
     private void SpawnCoins()

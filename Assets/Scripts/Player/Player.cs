@@ -111,7 +111,14 @@ public class Player : MonoBehaviour, IDamageable
         rb.velocity = Vector2.zero;
         controls.Gameplay.Disable();
         canMove = false;
-        this.enabled = false;
+
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.GameOver();
     }
 }
 

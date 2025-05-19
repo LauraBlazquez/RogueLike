@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using System;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -23,7 +25,13 @@ public class WeaponManager : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInput = GetComponentInParent<PlayerInput>();
+        if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>(); 
+
+        if (playerInput == null)
+        {
+            Debug.Log("PlayerInput aun sin asignar");
+            return;
+        }
         var actions = playerInput.actions;
 
         actions["SelectWeapon1"].performed += ctx => SelectWeaponByIndex(0);
@@ -36,6 +44,7 @@ public class WeaponManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if (playerInput == null) return;
         var actions = playerInput.actions;
 
         actions["SelectWeapon1"].performed -= ctx => SelectWeaponByIndex(0);
